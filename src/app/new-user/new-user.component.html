@@ -1,0 +1,79 @@
+<div class="container-sm pt-3">
+  <form class="row g-3" (ngSubmit)="createUser()">
+    <div class="col-md-6">
+      <label for="inputName" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="firstName" 
+        name="firstName" [(ngModel)]="user.first_name" [class.is-invalid]="!isInValidState('first_name')" [class.is-valid]="isInValidState('first_name')" required>
+      <div class="invalid-feedback">Por favor, completa este campo</div>
+      <div class="valid-feedback">Se ve bien!</div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputLastname" class="form-label">Apellido</label>
+      <input type="text" class="form-control" id="inputLastname"
+        name="lastName" [(ngModel)]="user.last_name" [class.is-invalid]="!isInValidState('last_name')" [class.is-valid]="isInValidState('last_name')" required>
+      <div class="invalid-feedback">Por favor, completa este campo</div>
+      <div class="valid-feedback">Se ve bien!</div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" 
+        name="email" [(ngModel)]="user.email" [class.is-invalid]="!isInValidState('email')" [class.is-valid]="isInValidState('email')" required>
+      <div class="invalid-feedback">Por favor, completa este campo</div>
+      <div class="valid-feedback">Se ve bien!</div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Password</label>
+      <input type="password" class="form-control" id="inputPassword4"
+        name="password" [(ngModel)]="user.password" [class.is-invalid]="!isInValidState('password')" [class.is-valid]="isInValidState('password')" required>
+      <div class="invalid-feedback">Por favor, completa este campo</div>
+      <div class="valid-feedback">Se ve bien!</div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputCI" class="form-label">CI</label>
+      <input type="text" class="form-control" id="inputCI"
+        name="CI" [(ngModel)]="user.ci" [class.is-invalid]="!isInValidState('ci')" [class.is-valid]="isInValidState('ci')" required>
+      <div class="invalid-feedback">Por favor, completar sin puntos ni guiones</div>
+      <div class="valid-feedback">Se ve bien!</div>
+    </div>
+    <!-- <div class="col-12">
+      <label for="inputAddress" class="form-label">Direccion</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Calle Falsa 123">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">Adicional</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, nro puerta, etc">
+    </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">Ciudad</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="col-md-4">
+      <label for="inputState" class="form-label">Departamento</label>
+      <select id="inputState" class="form-select">
+        <option selected>Elegir...</option>
+        <option>Montevideo</option>
+        <option>Canelones</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label for="inputZip" class="form-label">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div> -->
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Crear</button>
+    </div>
+  </form>
+
+  <div class="pt-3">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="showSuccessAlert">
+      Usuario registrado correctamente!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="showErrorAlert">
+      {{ errorMessage || "Ocurrio un error en el ingreso... Verifica los campos" }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+

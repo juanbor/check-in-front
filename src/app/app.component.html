@@ -1,0 +1,28 @@
+<nav class="navbar  navbar-expand-lg bg-body-tertiary" *ngIf="showNavBar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Clinica</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" routerLinkActive="active" *ngIf="isNormalUser()">
+          <a class="nav-link active" routerLink="/profile">Perfil</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/check-in">Check-In</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="isAdminUser()">
+          <a class="nav-link" routerLink="/users">Usuarios</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="isAdminUser()">
+          <a class="nav-link" routerLink="/activities">Actividades</a>
+        </li>
+      </ul>
+      <a class="nav-link" routerLink="/login" *ngIf="!isLoggedIn()">Login</a>
+      <a class="nav-link" (click)="logout()" *ngIf="isLoggedIn()">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

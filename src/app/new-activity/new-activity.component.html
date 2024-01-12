@@ -1,0 +1,27 @@
+<div class="container-sm pt-3">
+  <form class="row g-3" (ngSubmit)="createUser()">
+    <div class="col-md-6">
+      <label for="inputName" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="firstName" 
+        name="firstName" [(ngModel)]="activity.name" [class.is-invalid]="!isInValidState('name')" [class.is-valid]="isInValidState('name')" required>
+      <div class="invalid-feedback">Por favor, completa este campo</div>
+      <div class="valid-feedback">Se ve bien!</div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Crear</button>
+    </div>
+  </form>
+
+  <div class="pt-3">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="showSuccessAlert">
+      Usuario registrado correctamente!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="showErrorAlert">
+      {{ errorMessage || "Ocurrio un error en el ingreso... Verifica los campos" }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+

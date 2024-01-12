@@ -1,0 +1,53 @@
+<!-- checkin.component.html -->
+
+<div class="container-lg">
+
+
+
+  <form (submit)="checkIn()">
+    <div class="form-group">
+      <div class="d-flex justify-content-center pt-4">
+        <h1 style="font-size: 2.5em;">CI: <span class="badge bg-primary">  {{ checkinData.ci }} </span></h1>
+      </div>
+    </div>
+
+    <div class="btn-group-vertical ml-10 mt-10 col-md-10 offset-md-1 p-3" role="group">
+        <div class="btn-group">
+            <button type="button" class="btn btn-outline-primary py-4" (click)="updateInput(1)">1</button>
+            <button type="button" class="btn btn-outline-primary py-4" (click)="updateInput(2)">2</button>
+            <button type="button" class="btn btn-outline-primary py-4" (click)="updateInput(3)">3</button>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-outline-primary py-4" (click)="updateInput(4)">4</button>
+            <button type="button" class="btn btn-outline-primary py-4" (click)="updateInput(5)">5</button>
+            <button type="button" class="btn btn-outline-primary py-4" (click)="updateInput(6)">6</button>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-outline-primary py-4" (click)="updateInput(7)">7</button>
+            <button type="button" class="btn btn-outline-primary py-4" (click)="updateInput(8)">8</button>
+            <button type="button" class="btn btn-outline-primary py-4" (click)="updateInput(9)">9</button>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-outline-danger py-6" (click)="remveLastInput()">&lt;</button>
+            <button type="button" class="btn btn-outline-primary py-6" (click)="updateInput(0)">0</button>
+        </div>
+        <div class="btn-group">
+          <button type="submit" class="btn btn-outline-success">Ingresar</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="showSuccessAlert">
+    Ingreso registrado correctamente!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="showErrorAlert">
+    {{ errorMessage || "Ocurrio un error en el ingreso... Verifica tu CI" }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+</div>
+
+
+

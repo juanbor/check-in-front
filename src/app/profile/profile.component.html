@@ -1,0 +1,35 @@
+<!-- profile.component.html -->
+
+<div class="container-sm">
+
+
+    <div class="container text-center pt-3" *ngIf="user">
+
+      <div class="row">
+        <div class="border col-4">
+          <img src="./../../assets/profile2.webp" class="img-thumbnail rounded border border-0 pt-3">
+          <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+        </div>
+        <div class="border col-8 pt-3">
+          <h1>Historial de actividad</h1>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let checkin of checkinHistory">
+                <th scope="row">{{ checkin.date }}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  <div *ngIf="!user">
+    <p>Loading user data...</p>
+  </div>
+</div>
